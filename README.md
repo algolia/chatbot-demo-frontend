@@ -1,16 +1,25 @@
-This example shows how to do server side rendering with next.js and React InstantSearch. There's a live example here: https://codesandbox.io/s/github/algolia/react-instantsearch/tree/master/examples/next.
+This project represents a dynamic landing page.
 
-## Clone the example
+## Use case
+The general use case for this application will be:
+- a chatbot collects what a user needs (example: white, wingtip classic fit, small size shirt for delivery)
+- the chatbot calls a middleware, which generates a URL to this landing page application unique to the user
+- the landing page is supplied with search parameters, upsell parameters, and potentially a promotion code.
+- the landing page then generates the correct content by searching algolia, and displays the content.
+- the URL is provided to the user through the chatbot so they can see the recommendations and complete purchase
 
-```
-curl https://codeload.github.com/algolia/react-instantsearch/tar.gz/master | tar -xz --strip=2 react-instantsearch-master/examples/next
-```
+## Planned layout
+The general layout of this landing page will be:
+- A brand logo and banner at the top
+- A row of two products with a "one click buy" button to buy both together, then...
+- A row of three products with an add to cart button for each, then...
+- A second row of three products with an add to cart button for each, then...
+- A banner showing an already applied promotion code and a sentance description
 
-## Start the example
+## Layout example
+An example of the page filled with content will be:
+- Clothing brand (smart menswear) logo at the top
+- a row containing a single shirt, and a single bowtie (represents the recommended combination for the user)
+- a row containing three shirts (represents the three best recommended shirts for the user)
+- a row containing three bowties (represents the three best upsell accessories for the user)
 
-```sh
-yarn install --no-lockfile
-yarn run dev
-```
-
-Read more about `react-instantsearch` [in our documentation](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/react/).
