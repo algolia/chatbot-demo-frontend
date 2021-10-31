@@ -23,3 +23,26 @@ An example of the page filled with content will be:
 - a row containing three shirts (represents the three best recommended shirts for the user)
 - a row containing three bowties (represents the three best upsell accessories for the user)
 
+## Provided parameters
+The application will always be provided with the following parameters:
+
+- user
+    - name: Ben
+    - age: 20-30
+    - customer_segment: city
+
+- product
+    - name: shirt
+    - fit: classic
+    - collar: wingtip
+    - colour: white
+    - fulfilment: delivery
+
+- upsell
+    - name: bowtie
+    - colour: black
+
+- promotion
+    - code: XYZ
+    - amount: 20%
+    - applied_to: upsell 
