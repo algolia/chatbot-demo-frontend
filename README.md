@@ -36,6 +36,7 @@ The application will always be provided with the following parameters:
     - fit: classic
     - collar: wingtip
     - colour: white
+    - size: small
     - fulfilment: delivery
 
 - upsell
