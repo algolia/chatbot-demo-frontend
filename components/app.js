@@ -1,11 +1,8 @@
 import React from 'react'
-import { useRouter } from 'next/router'
-// import styles from './App.module.css'
+// import { useRouter } from 'next/router'
 
 const App = () => {
-  const router = useRouter()
-
-  console.log(router.query, router.asPath)
+  // const router = useRouter()
 
   return (
     <div id="container" className="container">

@@ -10,22 +10,25 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@types/react": "^17.0.34",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "css-loader": "3.2.0",
     "jest": "23.6.0",
     "react-test-renderer": "16.8.6",
-    "style-loader": "1.0.0"
+    "style-loader": "1.0.0",
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "algoliasearch": "4.9.3",
     "autoprefixer": "^10.4.0",
-    "next": "9.1.1",
+    "babel": "^6.23.0",
+    "next": "^12.0.3",
     "postcss": "^8.3.11",
     "prop-types": "15.6.2",
     "qs": "6.8.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-instantsearch-dom": "6.12.0"
   }
 }
