@@ -17,3 +17,7 @@
 .promocode {
     display: flex;
 }
+
+.carouselContainer {
+    display: flex;
+}
