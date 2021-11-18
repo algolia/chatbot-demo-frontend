@@ -38,14 +38,14 @@ const App = () => {
     return (
       <div className={appStyles.carouselContainer}>
         {hits.map((hit) => (
-          <div key={hit.objectID}>
+          <div key={hit.objectID} className={appStyles.hit}>
             <img
               src={hit.full_url_image}
               alt="no-img"
               style={{ height: '150px' }}
             />
-            {hit.name}
-            {hit.price}
+            <p>{hit.name}</p>
+            <p className={appStyles.price}>{hit.price}</p>
           </div>
         ))}
       </div>
@@ -58,7 +58,7 @@ const App = () => {
       {/* Most of the received params will be a filter. Unusable filters at this time are: 'collar', 'fulfillment', and 'fit' */}
       <Configure
         filters="genderFilter:men AND colour:white AND sizeFilter:S"
-        hitsPerPage={4}
+        hitsPerPage={3}
       />
       <div id="container" className={appStyles.container}>
         <div id="buy-together" className={appStyles.buytogether}>
@@ -78,7 +78,7 @@ const App = () => {
         {/* We want to take the received query params and plug them into a search query that runs when we load the page (useEffect?) */}
         <div id="main-product" className={appStyles.mainproduct}>
           CAROUSEL WITH THREE
-          {router.query.product}
+          {router.query.product}s
         </div>
         <div id="upsell-product" className={appStyles.upsellproduct}>
           TODO: CAROUSEL WITH THREE ACCESSORIES

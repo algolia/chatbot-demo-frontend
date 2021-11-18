@@ -20,4 +20,14 @@
 
 .carouselContainer {
     display: flex;
+    
+}
+
+.hit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 50px;
+    background-color: #F1F1F0;
 }
