@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import algoliasearch from 'algoliasearch/lite'
 import {
   InstantSearch,
   connectSearchBox,
-  Hits,
   Configure,
   connectHits,
   Index,
@@ -15,18 +14,30 @@ import appStyles from './App.module.css'
 
 const App = () => {
   const [accessoriesCategory, setAccessoriesCategory] = useState('null')
+  const [products, setProducts] = useState(null)
+  const [accessories, setAccessories] = useState(null)
+
   const StateResults = ({ allSearchResults }) => {
-    if (
-      allSearchResults &&
-      allSearchResults.product &&
-      allSearchResults.product.hits.length
-    ) {
+    useEffect(() => {
       if (
-        accessoriesCategory !== allSearchResults.product.hits[0].accessories
+        allSearchResults &&
+        allSearchResults.product &&
+        allSearchResults.product.hits.length
       ) {
         setAccessoriesCategory(allSearchResults.product.hits[0].accessories)
+
+        setProducts(allSearchResults.product.hits)
       }
-    }
+
+      if (
+        allSearchResults &&
+        allSearchResults.accessories &&
+        allSearchResults.accessories.hits.length
+      ) {
+        setAccessories(allSearchResults.accessories.hits)
+      }
+    }, [])
+
     return null
   }
 
@@ -39,10 +50,8 @@ const App = () => {
   const router = useRouter()
 
   const SearchBox = ({ currentRefinement, isSearchStalled, refine, query }) => {
-    console.log('query', query)
     // refine is a function. Look at the docs
     refine(query)
-    // refine('shirt');
     // return null means render no html to the page, but we maintain the functionality
     return null
   }
@@ -72,23 +81,38 @@ const App = () => {
       {/* Most of the received params will be a filter. Unusable filters at this time are: 'collar', 'fulfillment', and 'fit' */}
       <CustomStateResults />
       <div id="container" className={appStyles.container}>
-        <Index indexName="chatbot-demo" indexId="product">
-          <Configure
-            // filters="genderFilter:men AND colour:white AND sizeFilter:S"
-            hitsPerPage={4}
-          />
-          <div id="buy-together" className={appStyles.buytogether}>
-            <div>
-              <p>Shirt</p>
+        <div id="buy-together" className={appStyles.buytogethercontainer}>
+          <div className={appStyles.carouselContainer}>
+            <div className={appStyles.productContainer}>
+              {products && (
+                <div>
+                  <img src={products[0].image} style={{ height: '150px' }} />
+                  <p>{products[0].name}</p>
+                </div>
+              )}
               <p>buy it button</p>
             </div>
-            <div>
-              <p>Bowtie</p>
+            <div className={appStyles.productContainer}>
+              {accessories && (
+                <div>
+                  <img src={accessories[0].image} style={{ height: '150px' }} />
+                  <p>{accessories[0].name}</p>
+                </div>
+              )}
               <p>buy it button</p>
             </div>
+          </div>
+
+          <div className={appStyles.productContainer}>
             <p>Buy together and save X%</p>
             <p>Button to buy together</p>
           </div>
+        </div>
+        <Index indexName="chatbot-demo" indexId="product">
+          <Configure
+            // filters="genderFilter:men AND colour:white AND sizeFilter:S"
+            hitsPerPage={3}
+          />
           <CustomSearchBoxProduct query="shirt" />
           <CustomHitsProduct />
           {/* We want to take the received query params and plug them into a search query that runs when we load the page (useEffect?) */}

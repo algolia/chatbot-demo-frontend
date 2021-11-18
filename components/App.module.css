@@ -5,15 +5,18 @@
     max-width: 90vw;
     margin: 0 auto;
 }
-.buytogether {
+.buytogethercontainer {
     display: flex;
 }
+
 .mainproduct {
     display: flex;
 }
+
 .upsellproduct {
     display: flex;
 }
+
 .promocode {
     display: flex;
 }
@@ -24,6 +27,12 @@
     align-items: center;
     justify-content: space-between;
     min-width: 40vw;
+    margin-bottom: 5rem;
+    
+}
+
+.carouselContainer:first-child {
+    margin-top: 5rem;
 }
 
 .productContainer{
