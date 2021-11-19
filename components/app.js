@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import algoliasearch from 'algoliasearch/lite'
-import appStyles from './App.module.scss'
+import appStyles from './App.module.css'
 
 const App = () => {
   const [products, setProducts] = useState(null)
@@ -38,6 +38,7 @@ const App = () => {
             <img src={hit.image} alt="no-img" style={{ height: '150px' }} />
             {hit.name}
             {hit.price}
+            <a className={appStyles.buybutton}>buy it</a>
           </div>
         ))}
       </div>
@@ -57,7 +58,7 @@ const App = () => {
                 <p>{products[0].name}</p>
               </div>
             )}
-            <p>buy it button</p>
+            <a className={appStyles.buybutton}>buy it</a>
           </div>
           <div className={appStyles.productContainer}>
             {accessories && accessories.length && (
@@ -66,12 +67,11 @@ const App = () => {
                 <p>{accessories[0].name}</p>
               </div>
             )}
-            <p>buy it button</p>
+            <a className={appStyles.buybutton}>buy it</a>
           </div>
-          <div className={appStyles.productContainer}>
-            <p>Buy together and save X%</p>
-            <p>Button to buy together</p>
-          </div>
+        </div>
+        <div className={appStyles.buybothcontainer}>
+          <a className={appStyles.buybutton}>Buy both together and save 10%</a>
         </div>
       </div>
       <div id="main-product" className={appStyles.mainproductcontainer}>

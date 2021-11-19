@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-width: 90vw;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .carouselContainer {
+      flex-direction: column;
+    }
+  }
+
+.buytogethercontainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 25vw;
+    min-width: 25vw;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.mainproductcontainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 40vw;
+    min-width: 40vw;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.upsellproductcontainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 40vw;
+    min-width: 40vw;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.promocode {
+    display: flex;
+}
+
+.carouselContainer {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 6rem;
+    
+}
+
+.carouselContainer:first-child {
+    margin-top: 3rem;
+}
+
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.buybothcontainer {
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+a.buybutton {
+     display:inline-block;
+     padding: 0.35em 1.2em;
+     border: 0.1em solid #FFFFFF;
+     margin: 0 0.3em 0.3em 0;
+     border-radius: 0.12em;
+     box-sizing: border-box;
+     text-decoration: none;
+     font-weight: 300;
+     background-color: #000000;
+     color: #FFFFFF;
+     text-align: center;
+     transition: all 0.2s;
+     font-family: 'Roboto',sans-serif;
+}
+
+.buybutton:hover {
+ color:#000000;
+ background-color: #FFFFFF;
+}
