@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import algoliasearch from 'algoliasearch/lite'
-import appStyles from './App.module.css'
+import appStyles from './App.module.scss'
 
 const App = () => {
   const [products, setProducts] = useState(null)
