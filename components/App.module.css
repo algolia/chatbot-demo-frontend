@@ -1,20 +1,27 @@
 .container {
     display: flex;
     flex-direction: column;
+    text-align: center;
     min-width: 90vw;
     max-width: 90vw;
     margin: 0 auto;
 }
 .buytogethercontainer {
     display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-.mainproduct {
+.mainproductcontainer {
     display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-.upsellproduct {
+.upsellproductcontainer {
     display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .promocode {
@@ -27,15 +34,16 @@
     align-items: center;
     justify-content: space-between;
     min-width: 40vw;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     
 }
 
 .carouselContainer:first-child {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .productContainer{
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
