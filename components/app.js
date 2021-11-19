@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import algoliasearch from 'algoliasearch/lite'
 import {
   InstantSearch,
   connectSearchBox,
-  Hits,
   Configure,
   connectHits,
   Index,
@@ -13,34 +12,37 @@ import {
 
 import appStyles from './App.module.css'
 
-const App = () => {
-  const searchClient = algoliasearch(
-    '853MYZ81KY',
-    '1bc06bbf6de499f6b826a8a0e6902568'
-  )
-  const router = useRouter()
-  console.log(router.query, router.asPath)
-  let searchTerms = router.query
-  // const showSearchTerms = (searchTerms) => {
-  for (let [key, value] of Object.entries(searchTerms)) {
-    console.log(key, value)
-  }
-  // }
+// optional chaining eg:  allSearchResults?.product?.hits.length
 
-  const SearchBox = ({ currentRefinement, isSearchStalled, refine, query }) => {
-    console.log(query)
-    // refine is a function. Look at the docs
-    refine(query)
-    // refine('shirt');
-    // return null means render no html to the page, but we maintain the functionality
-    return null
-  }
 
-  const CustomSearchBoxProduct = connectSearchBox(SearchBox)
-  const CustomSearchBoxProductAccessories = connectSearchBox(SearchBox)
+const SearchBox = ({ currentRefinement, isSearchStalled, refine, query }) => {
+  console.log('QUERY: ', query);
+  // setAccessories(query);
+  // console.log('accessory', accessories);
+  // refine is a function. Look at the docs
+  // refine(query)
+  // refine('shirt');
+  // return null means render no html to the page, but we maintain the functionality
+  return null
+}
+
+// const CustomSearchBoxProduct = connectSearchBox(SearchBox)
+// const CustomSearchBoxProductAccessories = connectSearchBox(SearchBox)
+
+const Container = () => {
+  const [highlightedAccessory, setHighlightedAccessory] = useState([]);
+  console.log('HIGHLIGHT: ', highlightedAccessory);
 
   const Hits = ({ hits }) => {
-    console.log(hits)
+
+    console.log('HITS: ', hits);
+  
+    // useEffect(() => {
+    //   // if (hits[0] !== undefined){
+    //     setHighlightedAccessory(hits[0]);
+    //   // }
+    // }, []);
+    
     return (
       <div className={appStyles.carouselContainer}>
         {hits.map((hit) => (
@@ -53,19 +55,16 @@ const App = () => {
       </div>
     )
   }
-
+  
   const CustomHitsProduct = connectHits(Hits)
   const CustomHitsAccessories = connectHits(Hits)
 
   return (
-    <InstantSearch searchClient={searchClient} indexName="chatbot-demo">
-      {/* Most of the received params will be a filter. Unusable filters at this time are: 'collar', 'fulfillment', and 'fit' */}
-
-      <div id="container" className={appStyles.container}>
+    <div id="container" className={appStyles.container}>
         <Index indexName="chatbot-demo" indexId="product">
           <Configure
-            // filters="genderFilter:men AND colour:white AND sizeFilter:S"
-            hitsPerPage={4}
+            filters="colour:silver"
+            hitsPerPage={3}
           />
           <div id="buy-together" className={appStyles.buytogether}>
             <div>
@@ -79,21 +78,17 @@ const App = () => {
             <p>Buy together and save X%</p>
             <p>Button to buy together</p>
           </div>
-          <CustomSearchBoxProduct query={router.query.product} />
+          {/* <CustomSearchBoxProduct query={router.query.product} /> */}
           <CustomHitsProduct />
-          {/* We want to take the received query params and plug them into a search query that runs when we load the page (useEffect?) */}
-          <div id="main-product" className={appStyles.mainproduct}>
-            CAROUSEL WITH THREE
-            {router.query.product}
-          </div>
         </Index>
+          {/* accessories row */}
         <div id="upsell-product" className={appStyles.upsellproduct}>
           <Index indexName="chatbot-demo" indexId="accessories">
             <Configure
-              // filters="genderFilter:men AND colour:white AND sizeFilter:S"
-              hitsPerPage={4}
+              filters="category:smart_accessories"
+              hitsPerPage={3}
             />
-            <div id="buy-together" className={appStyles.buytogether}>
+            {/* <div id="buy-together" className={appStyles.buytogether}>
               <div>
                 <p>Shirt</p>
                 <p>buy it button</p>
@@ -104,18 +99,44 @@ const App = () => {
               </div>
               <p>Buy together and save X%</p>
               <p>Button to buy together</p>
-            </div>
-            <CustomSearchBoxProductAccessories query="bowtie" />
+            </div> */}
+            {/* This search renders the correct data but is not dynamic. Filtering by category is doing the work here */}
+            {/* <CustomSearchBoxProductAccessories query='' /> */}
             <CustomHitsAccessories />
             {/* We want to take the received query params and plug them into a search query that runs when we load the page (useEffect?) */}
-            <div id="main-product" className={appStyles.mainproduct}>
+            {/* <div id="main-product" className={appStyles.mainproduct}>
               CAROUSEL WITH THREE
               {router.query.product}
-            </div>
+            </div> */}
           </Index>
-          TODO: CAROUSEL WITH THREE ACCESSORIES
+          {/* TODO: CAROUSEL WITH THREE ACCESSORIES */}
         </div>
       </div>
+  )
+}
+
+const App = () => {
+  // const [highlightedAccessory, setHighlightedAccessory] = useState([]);
+  // console.log('HIGHLIGHT: ', highlightedAccessory);
+  
+
+  const searchClient = algoliasearch(
+    '853MYZ81KY',
+    '1bc06bbf6de499f6b826a8a0e6902568'
+  )
+  // const router = useRouter()
+  // console.log(router.query, router.asPath)
+  // let searchTerms = router.query
+  // const showSearchTerms = (searchTerms) => {
+  // for (let [key, value] of Object.entries(searchTerms)) {
+  //   console.log(key, value)
+  // }
+  // }
+
+  return (
+    <InstantSearch searchClient={searchClient} indexName="chatbot-demo">
+      {/* search row */}
+      <Container />
     </InstantSearch>
   )
 }
