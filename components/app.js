@@ -47,6 +47,7 @@ const App = () => {
 
   return (
     <div id="container" className={appStyles.container}>
+      <img src="Simple.svg" height='100' />
       <h2>Welcome, Ben!</h2>
       <div id="buy-together" className={appStyles.buytogethercontainer}>
         <h2>Our recommendation</h2>
