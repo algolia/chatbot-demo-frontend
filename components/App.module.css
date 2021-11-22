@@ -31,6 +31,15 @@
     .carouselContainer {
       flex-direction: column;
     }
+
+    .buytogethercontainer {
+        max-width: 90vw !important;
+        min-width: 90vw !important;
+    }
+
+    .firstcarouselContainer {
+        flex-direction: column;
+    }
   }
 
 .buytogethercontainer {
