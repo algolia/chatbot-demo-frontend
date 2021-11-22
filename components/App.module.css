@@ -37,10 +37,11 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    max-width: 25vw;
-    min-width: 25vw;
+    max-width: 30vw;
+    min-width: 30vw;
     margin: 0 auto;
     justify-content: space-evenly;
+    margin-bottom: 3rem;
 }
 
 .mainproductcontainer {
@@ -67,6 +68,17 @@
     display: flex;
 }
 
+.firstcarouselContainer {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
 .carouselContainer {
     display: flex;
     margin: 0 auto;
@@ -78,24 +90,21 @@
     
 }
 
-.carouselContainer:first-child {
-    margin-top: 3rem;
-}
-
 .productContainer{
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.buybothcontainer {
-    min-width: 100%;
+.buybothbuttoncontainer {
     max-width: 100%;
+    min-width: 100%;
     margin: 0 auto;
 }
 
 a.buybutton {
      display:inline-block;
+     min-width: 75%;
      padding: 0.35em 1.2em;
      border: 0.1em solid #FFFFFF;
      margin: 0 0.3em 0.3em 0;
