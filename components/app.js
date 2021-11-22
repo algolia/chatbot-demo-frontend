@@ -46,41 +46,46 @@ const App = () => {
   }
 
   return (
-    <div id="container" className={appStyles.container}>
-      <h2>Welcome, Ben!</h2>
-      <div id="buy-together" className={appStyles.buytogethercontainer}>
-        <h2>Our recommendation</h2>
-        <div className={appStyles.carouselContainer}>
-          <div className={appStyles.productContainer}>
-            {products && products.length && (
-              <div>
-                <img src={products[0].image} style={{ height: '150px' }} />
-                <p>{products[0].name}</p>
-              </div>
-            )}
-            <a className={appStyles.buybutton}>buy it</a>
+    <div className={appStyles.outercontainer}>
+      <div className={appStyles.banner}></div>
+      <div id="container" className={appStyles.container}>
+        <h2>Welcome, Ben!</h2>
+        <div id="buy-together" className={appStyles.buytogethercontainer}>
+          <h2>Our recommendation</h2>
+          <div className={appStyles.carouselContainer}>
+            <div className={appStyles.productContainer}>
+              {products && products.length && (
+                <div>
+                  <img src={products[0].image} style={{ height: '150px' }} />
+                  <p>{products[0].name}</p>
+                </div>
+              )}
+              <a className={appStyles.buybutton}>buy it</a>
+            </div>
+            <div className={appStyles.productContainer}>
+              {accessories && accessories.length && (
+                <div>
+                  <img src={accessories[0].image} style={{ height: '150px' }} />
+                  <p>{accessories[0].name}</p>
+                </div>
+              )}
+              <a className={appStyles.buybutton}>buy it</a>
+            </div>
           </div>
-          <div className={appStyles.productContainer}>
-            {accessories && accessories.length && (
-              <div>
-                <img src={accessories[0].image} style={{ height: '150px' }} />
-                <p>{accessories[0].name}</p>
-              </div>
-            )}
-            <a className={appStyles.buybutton}>buy it</a>
+          <div className={appStyles.buybothcontainer}>
+            <a className={appStyles.buybutton}>
+              Buy both together and save 10%
+            </a>
           </div>
         </div>
-        <div className={appStyles.buybothcontainer}>
-          <a className={appStyles.buybutton}>Buy both together and save 10%</a>
+        <div id="main-product" className={appStyles.mainproductcontainer}>
+          <h2>Your product</h2>
+          {products && products.length && <Hits hits={products} />}
         </div>
-      </div>
-      <div id="main-product" className={appStyles.mainproductcontainer}>
-        <h2>Your product</h2>
-        {products && products.length && <Hits hits={products} />}
-      </div>
-      <div id="upsell-product" className={appStyles.upsellproductcontainer}>
-        <h2>Your accessories</h2>
-        {accessories && accessories.length && <Hits hits={accessories} />}
+        <div id="upsell-product" className={appStyles.upsellproductcontainer}>
+          <h2>Your accessories</h2>
+          {accessories && accessories.length && <Hits hits={accessories} />}
+        </div>
       </div>
     </div>
   )
