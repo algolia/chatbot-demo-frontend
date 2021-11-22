@@ -12,11 +12,19 @@
 }
 
 .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-width: 100%;
     max-width: 100%;
     margin: 0 auto;
     height: 15rem;
-    background-color: #000000;
+    background-color: #c1b9ed;
+    text-align: center;
+}
+
+.bannerimage {
+    margin: 0 auto;
 }
 
 @media (max-width: 800px) {

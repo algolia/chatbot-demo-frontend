@@ -47,9 +47,11 @@ const App = () => {
 
   return (
     <div className={appStyles.outercontainer}>
-      <div className={appStyles.banner}></div>
-      <div id="container" className={appStyles.container}>
+      <div className={appStyles.banner}>
+        <img src="Simple.svg" height="100" className={appStyles.bannerimage} />
         <h2>Welcome, Ben!</h2>
+      </div>
+      <div id="container" className={appStyles.container}>
         <div id="buy-together" className={appStyles.buytogethercontainer}>
           <h2>Our recommendation</h2>
           <div className={appStyles.carouselContainer}>
@@ -62,20 +64,11 @@ const App = () => {
               )}
               <a className={appStyles.buybutton}>buy it</a>
             </div>
-            <div className={appStyles.productContainer}>
-              {accessories && accessories.length && (
-                <div>
-                  <img src={accessories[0].image} style={{ height: '150px' }} />
-                  <p>{accessories[0].name}</p>
-                </div>
-              )}
-              <a className={appStyles.buybutton}>buy it</a>
+            <div className={appStyles.buybothcontainer}>
+              <a className={appStyles.buybutton}>
+                Buy both together and save 10%
+              </a>
             </div>
-          </div>
-          <div className={appStyles.buybothcontainer}>
-            <a className={appStyles.buybutton}>
-              Buy both together and save 10%
-            </a>
           </div>
         </div>
         <div id="main-product" className={appStyles.mainproductcontainer}>
