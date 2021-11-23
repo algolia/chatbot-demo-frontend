@@ -14,6 +14,7 @@
 
 .container img {
     object-fit: contain;
+    z-index: 2;
 }
 
 .banner {
@@ -117,7 +118,26 @@
     box-shadow: 0 0 11px rgba(33,33,33,.1); 
     transition: box-shadow .2s;
     justify-content: space-between;
-    /* position: relative; */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.productContainer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    transform: skewY(345deg);
+    transition: 0.5s;
+}
+
+.productContainer:hover::before {
+    top: -70%;
+    transform: skewY(390deg);
 }
 
 .productContainer:hover {
