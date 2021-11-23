@@ -57,19 +57,19 @@ const App = () => {
           <div className={appStyles.firstcarouselContainer}>
             <div className={appStyles.productContainer}>
               {products && products.length && (
-                <div>
+                <>
                   <img src={products[0].image} style={{ height: '150px' }} />
                   <p>{products[0].name}</p>
-                </div>
+                </>
               )}
               <a className={appStyles.buybutton}>buy it</a>
             </div>
             <div className={appStyles.productContainer}>
               {accessories && accessories.length && (
-                <div>
+                <>
                   <img src={accessories[0].image} style={{ height: '150px' }} />
                   <p>{accessories[0].name}</p>
-                </div>
+                </>
               )}
               <a className={appStyles.buybutton}>buy it</a>
             </div>
