@@ -179,7 +179,7 @@ a.buybutton {
     background-color: #000000;
     color: #FFFFFF;
     text-align: center;
-    transition: 0.5s ease-in-out 0.5s;
+    transition: 0.3s ease-in-out 0.5s;
     font-family: 'Roboto',sans-serif;
     /* position: absolute; */
     /* bottom: 1rem; */
@@ -189,3 +189,28 @@ a.buybutton {
  color:#000000;
  background-color: #FFFFFF;
 }
+
+/* TODO: make this more dry- it copies buybutton */
+a.buybothbutton {
+    display:inline-block;
+    min-width: 75%;
+    padding: 0.85em 1em;
+    border: 0.1em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    transition: 0.3s;
+    font-family: 'Roboto',sans-serif;
+}
+
+.buybothbutton:hover {
+    color:#000000;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+   }

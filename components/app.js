@@ -73,10 +73,13 @@ const App = () => {
               )}
               <a className={appStyles.buybutton}>buy it</a>
             </div>
+            <div className={appStyles.buybothbanner}>
+              <p>Buy both together and save 10%</p>
+            </div>
           </div>
           <div className={appStyles.buybothbuttoncontainer}>
-            <a className={appStyles.buybutton}>
-              Buy both together and save 10%
+            <a className={appStyles.buybothbutton}>
+              Buy both in one click with Paypal&trade;
             </a>
           </div>
         </div>
