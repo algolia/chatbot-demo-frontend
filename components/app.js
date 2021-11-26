@@ -38,7 +38,7 @@ const App = () => {
             <img src={hit.image} alt="no-img" style={{ height: '150px' }} />
             {hit.name}
             {hit.price}
-            <a className={appStyles.buybutton}>buy it</a>
+            <a className={appStyles.buybutton}>View item</a>
           </div>
         ))}
       </div>
@@ -54,6 +54,9 @@ const App = () => {
       <div id="container" className={appStyles.container}>
         <div id="buy-together" className={appStyles.buytogethercontainer}>
           <h2>Our recommendation</h2>
+            <div className={appStyles.buybothbanner}>
+              <p>Just for you: Buy both and save 10%</p>
+            </div>
           <div className={appStyles.firstcarouselContainer}>
             <div className={appStyles.productContainer}>
               {products && products.length && (
@@ -62,19 +65,17 @@ const App = () => {
                   <p>{products[0].name}</p>
                 </>
               )}
-              <a className={appStyles.buybutton}>buy it</a>
+              <a className={appStyles.buybutton}>View item</a>
             </div>
+            <p className={appStyles.plus}>+</p>
             <div className={appStyles.productContainer}>
               {accessories && accessories.length && (
                 <>
-                  <img src={accessories[0].image} style={{ height: '150px' }} />
+                  <img src={accessories[0].image} style={{ height: '100px' }} />
                   <p>{accessories[0].name}</p>
                 </>
               )}
-              <a className={appStyles.buybutton}>buy it</a>
-            </div>
-            <div className={appStyles.buybothbanner}>
-              <p>Buy both together and save 10%</p>
+              <a className={appStyles.buybutton}>View item</a>
             </div>
           </div>
           <div className={appStyles.buybothbuttoncontainer}>
@@ -84,11 +85,11 @@ const App = () => {
           </div>
         </div>
         <div id="main-product" className={appStyles.mainproductcontainer}>
-          <h2>Your product</h2>
+          <h2>Items similar to your product</h2>
           {products && products.length && <Hits hits={products} />}
         </div>
         <div id="upsell-product" className={appStyles.upsellproductcontainer}>
-          <h2>Your accessories</h2>
+          <h2>Recommended accessories</h2>
           {accessories && accessories.length && <Hits hits={accessories} />}
         </div>
       </div>

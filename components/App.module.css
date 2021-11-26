@@ -26,7 +26,7 @@
     max-width: 100%;
     margin: 0 auto;
     height: 15rem;
-    background-color: #c1b9ed;
+    background-color: #F9F9F9;
     text-align: center;
 }
 
@@ -91,8 +91,6 @@
     justify-content: space-around;
     min-width: 100%;
     max-width: 100%;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
 }
 
 .carouselContainer {
@@ -106,12 +104,17 @@
     
 }
 
+.plus {
+    font-size: 2rem;
+}
+
 .productContainer{
     background-color: #FFFFFF;
     min-width: 10rem;
-    min-height: 16rem;
+    min-height: 10rem;
     padding: 1rem;
     margin: 1rem;
+    /* margin-top: 0; */
     border-radius: 1em;
     display: flex;
     flex-direction: column;
@@ -176,7 +179,7 @@ a.buybutton {
     box-sizing: border-box;
     text-decoration: none;
     font-weight: 300;
-    background-color: #000000;
+    background-color: #5467FF;
     color: #FFFFFF;
     text-align: center;
     transition: 0.3s ease-in-out 0.5s;
@@ -186,7 +189,7 @@ a.buybutton {
 }
 
 .buybutton:hover {
- color:#000000;
+ color:#5467FF;
  background-color: #FFFFFF;
 }
 
@@ -201,7 +204,7 @@ a.buybothbutton {
     box-sizing: border-box;
     text-decoration: none;
     font-weight: 300;
-    background-color: #000000;
+    background-color: #5467FF;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
     text-align: center;
@@ -210,7 +213,15 @@ a.buybothbutton {
 }
 
 .buybothbutton:hover {
-    color:#000000;
+    color:#5467FF;
     background-color: #FFFFFF;
+    border: 1px solid #5467FF;
+   }
+
+
+.buybothbanner {
     border: 1px solid #000000;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
    }
