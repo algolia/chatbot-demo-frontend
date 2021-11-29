@@ -1,6 +1,8 @@
 .outercontainer {
     background-color: #F9F9F9;
     min-width: 100vw;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .container {
@@ -34,26 +36,18 @@
     margin: 0 auto;
 }
 
-@media (max-width: 800px) {
-    .carouselContainer {
-      flex-direction: column;
-    }
-
-    .buytogethercontainer {
-        max-width: 90vw !important;
-        min-width: 90vw !important;
-    }
-
-    .firstcarouselContainer {
-        flex-direction: column;
-    }
-  }
 
 .buytogethercontainer {
+    /* border: solid 5px red; */
+    /* make the box stand out a little to increase conversion  */
+    background-color: #FFFFFF;
+    box-shadow: 0 0 11px rgba(33,33,33,.1);
+    padding-bottom: 1em;
+    border-radius: 1em;
+    
     display: flex;
     flex-direction: column;
     text-align: center;
-    max-width: 30vw;
     min-width: 30vw;
     margin: 0 auto;
     justify-content: space-evenly;
@@ -89,8 +83,8 @@
     margin: 0 auto;
     align-items: center;
     justify-content: space-around;
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 40vw;
+    max-width: 60vw;
 }
 
 .carouselContainer {
@@ -143,7 +137,7 @@
 .productContainer:hover::before {
     top: -70%;
     transform: skewY(390deg);
-
+    
 }
 
 .productContainer:hover {
@@ -155,7 +149,7 @@
 }
 
 .productContainer:hover a.buybutton {
-    top: 0;
+    top: 0.2em;
     opacity: 1;
     transition: 0.5s;
 }
@@ -181,16 +175,18 @@ a.buybutton {
     font-weight: 300;
     background-color: #5467FF;
     color: #FFFFFF;
+    border: solid 1px #FFFFFF;
+    cursor: pointer;
     text-align: center;
     transition: 0.3s ease-in-out 0.5s;
-    font-family: 'Roboto',sans-serif;
     /* position: absolute; */
     /* bottom: 1rem; */
 }
 
 .buybutton:hover {
- color:#5467FF;
- background-color: #FFFFFF;
+    color:#5467FF;
+    background-color: #FFFFFF;
+    border: solid 1px #5467FF;
 }
 
 /* TODO: make this more dry- it copies buybutton */
@@ -216,7 +212,8 @@ a.buybothbutton {
     color:#5467FF;
     background-color: #FFFFFF;
     border: 1px solid #5467FF;
-   }
+    cursor: pointer;
+}
 
 
 .buybothbanner {
@@ -224,4 +221,56 @@ a.buybothbutton {
     background-color: #000000;
     color: #FFFFFF;
     text-align: center;
-   }
+    border-radius: 1em 1em 0 0 ;
+}
+
+.productName {
+    text-transform: capitalize;
+    margin: 1em 0 0 0;
+    margin-bottom: 1em;
+    font-weight: 500;
+}
+
+.productDescription {
+    font-size: 0.9em;;
+    text-align: justify;
+    padding: 0 0.5em;
+    width: 90%;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.productDescription p {
+    margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .buytogethercontainer {
+      max-width: 90vw;
+      min-width: 60vw;
+  }
+  a.buybutton {
+      top: 0.2em;
+      opacity: 1;
+      color:#5467FF;
+      background-color: #FFFFFF;
+      border: solid 1px #5467FF;
+  }
+}
+
+@media (max-width: 800px) {
+    .carouselContainer {
+      flex-direction: column;
+    }
+    .buytogethercontainer {
+        max-width: 90vw !important;
+        min-width: 50vw !important;
+    }
+    
+    .firstcarouselContainer {
+        flex-direction: column;
+    }
+    .plus {
+        margin: -1rem;
+    }
+  }

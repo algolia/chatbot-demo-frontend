@@ -1,6 +1,7 @@
 import React from 'react'
 // import { withRouter } from 'next/router'
 // import algoliasearch from 'algoliasearch/lite'
+
 import { Head, App } from '../components'
 
 // const searchClient = algoliasearch(

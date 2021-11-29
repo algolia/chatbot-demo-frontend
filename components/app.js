@@ -6,29 +6,38 @@ import appStyles from './App.module.css'
 const App = () => {
   const [products, setProducts] = useState(null)
   const [accessories, setAccessories] = useState(null)
-
+  
+  const router = useRouter()
+  
   const searchClient = algoliasearch(
     '853MYZ81KY',
     '1bc06bbf6de499f6b826a8a0e6902568'
-  )
-  const index = searchClient.initIndex('chatbot-demo')
+    )
+    const index = searchClient.initIndex('chatbot-demo')
+    
+    useEffect(() => {
+      
+      console.log('QUERY', router.query);
 
-  useEffect(() => {
     const fetchProducts = async () => {
-      const { hits: productsResponse } = await index.search('shirt')
-      setProducts(productsResponse)
+      // this if statement prevents the code from running before the query params are populated
+      if (router.query?.product) {
+        const { hits: productsResponse } = await index.search(`${router.query.product}`)
+        console.log(productsResponse)
+        setProducts(productsResponse)
 
-      const { hits: accessoriesResponse } = await index.search('', {
-        filters: `category:${productsResponse[0].accessories}`,
-      })
+        const { hits: accessoriesResponse } = await index.search('', {
+          filters: `category:${productsResponse[0].accessories}`,
+        })
 
-      setAccessories(accessoriesResponse)
+        setAccessories(accessoriesResponse)
+      }
     }
 
     fetchProducts()
-  }, [])
+    // run this above block when the router query is updated
+  }, [router.query])
 
-  const router = useRouter()
 
   const Hits = ({ hits }) => {
     return (
@@ -36,7 +45,7 @@ const App = () => {
         {hits.map((hit) => (
           <div className={appStyles.productContainer} key={hit.objectID}>
             <img src={hit.image} alt="no-img" style={{ height: '150px' }} />
-            {hit.name}
+            <p className={appStyles.productName}>{hit.name}</p>
             {hit.price}
             <a className={appStyles.buybutton}>View item</a>
           </div>
@@ -52,17 +61,22 @@ const App = () => {
         <h2>Welcome, Ben!</h2>
       </div>
       <div id="container" className={appStyles.container}>
-        <div id="buy-together" className={appStyles.buytogethercontainer}>
           <h2>Our recommendation</h2>
+        <div id="buy-together" className={appStyles.buytogethercontainer}>
             <div className={appStyles.buybothbanner}>
-              <p>Just for you: Buy both and save 10%</p>
+              <p>UNIQUE OFFER: Buy both and save 20%</p>
             </div>
           <div className={appStyles.firstcarouselContainer}>
             <div className={appStyles.productContainer}>
               {products && products.length && (
                 <>
                   <img src={products[0].image} style={{ height: '150px' }} />
-                  <p>{products[0].name}</p>
+                  <p className={appStyles.productName}>{products[0].name}</p>
+                  <div className={appStyles.productDescription}>
+                    <p>Size: {products[0].size}</p>
+                    <p>Fit: {products[0].fit}</p>
+                    <p>Collar: {products[0].collar}</p>
+                  </div>
                 </>
               )}
               <a className={appStyles.buybutton}>View item</a>
@@ -72,7 +86,7 @@ const App = () => {
               {accessories && accessories.length && (
                 <>
                   <img src={accessories[0].image} style={{ height: '100px' }} />
-                  <p>{accessories[0].name}</p>
+                  <p className={appStyles.productName}>{accessories[0].name}</p>
                 </>
               )}
               <a className={appStyles.buybutton}>View item</a>
