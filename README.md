@@ -4,7 +4,7 @@
 
 ?product=shirt&collar=wingtip&fit=slim&fulfillment=delivery&colour=white
 
-- this would be added to your domain, eg www.chatbot.com/
+- this would be added to your domain, eg www.YOURWEBSITE.com/
 
 
 
