@@ -1,4 +1,12 @@
-This project represents a dynamic landing page.
+
+
+### URI for the search
+
+?product=shirt&collar=wingtip&fit=slim&fulfillment=delivery&colour=white
+
+- this would be added to your domain, eg www.chatbot.com/
+
+
 
 ## Use case
 The general use case for this application will be:
@@ -8,11 +16,13 @@ The general use case for this application will be:
 - the landing page then generates the correct content by searching algolia, and displays the content.
 - the URL is provided to the user through the chatbot so they can see the recommendations and complete purchase
 
+
+
 ## Planned layout
 The general layout of this landing page will be:
 - A brand logo and banner at the top
 - A row of two products with a "one click buy" button to buy both together, then...
-- A row of three products with an add to cart button for each, then...
+- A row of three products with a button for each, then...
 - A second row of three products with an add to cart button for each, then...
 - A banner showing an already applied promotion code and a sentance description
 
